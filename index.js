@@ -46,6 +46,8 @@ var getCategoryById = function(accessToken, id){
 
 var getCategories = function(accessToken){
 	var deferred = Q.defer();
+
+	var url = utils.createBaseUrl(config.categoryServiceIp, config.categoryServicePort);
 	
 	utils.getWithAccessToken(accessToken, url + "/categories").then(function(categories){
 		deferred.resolve(categories);

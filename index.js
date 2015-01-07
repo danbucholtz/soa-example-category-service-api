@@ -16,8 +16,8 @@ var createCategory = function(accessToken, name){
 		name: name
 	};
 
-	utils.postJsonWithAccessToken(accessToken, object, url + "/categories").then(function(category){
-		deferred.resolve(category);
+	utils.postJsonWithAccessToken(accessToken, object, url + "/categories").then(function(response){
+		deferred.resolve(response);
 	});
 
 	return deferred.promise;

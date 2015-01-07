@@ -33,7 +33,7 @@ var getCategoryById = function(accessToken, id){
 			return;
 		}
 
-		vvar url = utils.createBaseUrl(config.categoryServiceIp, config.categoryServicePort);
+		var url = utils.createBaseUrl(config.categoryServiceIp, config.categoryServicePort);
 		
 		utils.getWithAccessToken(accessToken, url + "/categories/" + id).then(function(category){	
 			redisUtil.put(id, category);

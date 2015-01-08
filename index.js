@@ -56,8 +56,25 @@ var getCategories = function(accessToken){
 	return deferred.promise;
 };
 
+var deleteCategory = function(accessToken, id){
+	var deferred = Q.defer();
+
+	var url = utils.createBaseUrl(config.categoryServiceIp, config.categoryServicePort);
+
+	var object = {
+		id: id
+	};
+
+	utils.postJsonWithAccessToken(accessToken, object, url + "/categories/delete").then(function(response){
+		deferred.resolve(response);
+	});
+
+	return deferred.promise;
+};
+
 module.exports = {
 	createCategory: createCategory,
 	getCategoryById: getCategoryById,
-	getCategories: getCategories
+	getCategories: getCategories,
+	deleteCategory: deleteCategory
 };
